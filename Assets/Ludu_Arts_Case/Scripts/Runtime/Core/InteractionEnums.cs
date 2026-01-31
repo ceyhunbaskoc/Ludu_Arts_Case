@@ -1,4 +1,4 @@
-namespace Ludu_Arts_Case.Scripts.Runtime.Core
+namespace LuduArtsCase.Runtime.Core
 {
     /// <summary>
     /// Types of interactions available in the game.

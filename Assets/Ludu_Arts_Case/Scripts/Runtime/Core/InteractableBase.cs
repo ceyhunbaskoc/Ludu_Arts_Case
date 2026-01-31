@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Ludu_Arts_Case.Scripts.Runtime.Core
+namespace LuduArtsCase.Runtime.Core
 {
     /// <summary>
     /// Base class for interactable objects in the game.
@@ -10,29 +10,29 @@ namespace Ludu_Arts_Case.Scripts.Runtime.Core
     {
         #region Fields
         [SerializeField]
-        private InteractionType m_interactionType = InteractionType.Instant;
+        private InteractionType m_InteractionType = InteractionType.Instant;
 
         [SerializeField]
-        private string m_promptText = "Interact";
+        private string m_PromptText = "Interact";
 
         [SerializeField]
-        private bool m_isInteractable = true;
+        private bool m_IsInteractable = true;
 
         [SerializeField]
-        private float m_holdDuration = 0f;
+        private float m_HoldDuration = 0f;
         
         #endregion
         
         #region Properties
         
         /// <inheritdoc />
-        public InteractionType InteractionType => m_interactionType;
+        public InteractionType InteractionType => m_InteractionType;
         /// <inheritdoc />
-        public string PromptText => m_promptText;
+        public string PromptText => m_PromptText;
         /// <inheritdoc />
-        public bool IsInteractable => m_isInteractable;
+        public bool IsInteractable => m_IsInteractable;
         /// <inheritdoc />
-        public float HoldDuration => m_holdDuration;
+        public float HoldDuration => m_HoldDuration;
         
         #endregion
 
@@ -44,7 +44,7 @@ namespace Ludu_Arts_Case.Scripts.Runtime.Core
         /// <param name="interactable">new state</param>
         public void SetInteractable(bool interactable)
         {
-            m_isInteractable = interactable;
+            m_IsInteractable = interactable;
         }
         
         #endregion

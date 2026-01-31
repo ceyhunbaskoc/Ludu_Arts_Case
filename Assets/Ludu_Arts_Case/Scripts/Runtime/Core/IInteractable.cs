@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Ludu_Arts_Case.Scripts.Runtime.Core
+namespace LuduArtsCase.Runtime.Core
 {
     /// <summary>
     /// Interface for interactable objects in the game.
