@@ -16,6 +16,7 @@ namespace LuduArtsCase.Runtime.Interactables
         
         [Header("References")]
         [SerializeField] private Transform m_CoverTransform;
+        [SerializeField] private Transform m_ItemSpawnPoint;
         
         private bool m_IsOpen = false;
         
@@ -32,6 +33,13 @@ namespace LuduArtsCase.Runtime.Interactables
 
             if (m_CoverTransform == null)
                 Debug.LogError($"Chest '{name}' has no Cover Transform assigned!", this);
+            
+            if (m_ItemSpawnPoint == null)
+                Debug.LogError($"Chest '{name}' has no Item Spawn Point assigned!", this);
+            else
+            {
+                Instantiate(m_OutputItem.Prefab, m_ItemSpawnPoint.position, m_ItemSpawnPoint.rotation, m_ItemSpawnPoint);
+            }
         }
 
         #endregion
@@ -44,7 +52,9 @@ namespace LuduArtsCase.Runtime.Interactables
                 if (!m_IsOpen)
                 {
                     OpenChest();
+                    /*
                     inventory.AddItem(m_OutputItem);
+                    */
                     Debug.Log($"Chest opened! Received: {m_OutputItem.DisplayName}");
                     SetInteractable(false);
                     SetPromptText("Empty");
@@ -78,6 +88,7 @@ namespace LuduArtsCase.Runtime.Interactables
             }
 
             m_CoverTransform.localRotation = endRotation;
+            gameObject.layer = 0;
         }
         #endregion
     }

@@ -89,6 +89,11 @@ namespace LuduArtsCase.Runtime.UI
                 m_PromptContainer.alpha = 0f;
             }
         }
+        
+        public void UpdatePromptText(string newText)
+        {
+            m_InteractionPromptText.text = newText;
+        }
 
         #endregion
     }

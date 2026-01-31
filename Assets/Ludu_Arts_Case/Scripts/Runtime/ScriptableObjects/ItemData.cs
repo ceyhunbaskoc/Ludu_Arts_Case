@@ -7,7 +7,9 @@ namespace LuduArtsCase.Runtime.ScriptableObjects
     public class ItemData : ScriptableObject
     {
         #region Fields
-
+        
+        [SerializeField] private GameObject m_Prefab;
+        
         [SerializeField] private string m_ID;
 
         [SerializeField] private string m_DisplayName;
@@ -20,6 +22,7 @@ namespace LuduArtsCase.Runtime.ScriptableObjects
         
         #region Properties
 
+        public GameObject Prefab => m_Prefab;
         public string ID => m_ID;
         public string DisplayName => m_DisplayName;
         public Sprite Icon => m_Icon;

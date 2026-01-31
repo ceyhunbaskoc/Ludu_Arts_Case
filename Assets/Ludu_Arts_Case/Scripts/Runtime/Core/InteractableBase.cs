@@ -1,4 +1,5 @@
 using System;
+using LuduArtsCase.Runtime.UI;
 using UnityEngine;
 
 namespace LuduArtsCase.Runtime.Core
@@ -21,6 +22,8 @@ namespace LuduArtsCase.Runtime.Core
         [SerializeField]
         private float m_HoldDuration = 0f;
         
+        [SerializeField] private InteractionUI m_InteractionUI;
+        
         #endregion
         
         #region Properties
@@ -33,6 +36,8 @@ namespace LuduArtsCase.Runtime.Core
         public bool IsInteractable => m_IsInteractable;
         /// <inheritdoc />
         public float HoldDuration => m_HoldDuration;
+        
+        public InteractionUI InteractionUI => m_InteractionUI;
         
         #endregion
 

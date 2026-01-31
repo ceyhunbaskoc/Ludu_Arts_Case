@@ -4,10 +4,10 @@
 
 | Bilgi | Değer |
 |-------|-------|
-| Toplam prompt sayısı |  |
+| Toplam prompt sayısı | 10 |
 | Kullanılan araçlar | Gemini / ChatGPT |
 | En çok yardım alınan konular | Mimari Tasarım, Code Review, C# Standards |
-| Tahmini LLM ile kazanılan süre |  |
+| Tahmini LLM ile kazanılan süre | 5-6 saat |
 
 ---
 
@@ -173,3 +173,52 @@
 
 **Açıklama:**
 > Event yönetimindeki hatayı düzelttim ve referans yönetimini optimize edilmiş kod ile değiştirdim.
+
+## Prompt 9: Mimari Refactoring ve Dependency Decoupling
+
+**Araç:** Gemini
+**Tarih/Saat:** 2026-01-31 9.30
+
+**Prompt:**
+> "Sana bütün kodlarımı atıyorum. Bu kodlar 'Çalışsın yeter' mantığıyla yazılmış. Unity ve C# uzmanı olarak; SOLID prensiplerine, Dependency Inversion ilkesine (UI bağımlılığını kopar) ve Ludu Arts kod standartlarına (prefixler, explicit interfaces) göre bu kodları baştan aşağı refactor et."
+
+**Alınan Cevap (Özet):**
+> Kod analizi yapıldı. `InteractableBase` sınıfının `InteractionUI` sınıfına doğrudan referans vermesi (Tight Coupling) en büyük hata olarak tespit edildi.
+> 1.  **Dependency Inversion:** UI referansı silindi, iletişim Observer Pattern (C# Events) ile `InteractionDetector` üzerine taşındı.
+> 2.  **Explicit Interface:** `IInteractable` metotları gizlendi, `OnInteract` abstract metodu ile Template Method Pattern uygulandı.
+> 3.  **DRY:** Tekrar eden rotasyon kodları temizlendi.
+> 4.  **Standartlar:** `m_`, `s_` prefixleri ve XML dökümantasyonları eklendi.
+
+**Nasıl Kullandım:**
+- [x] Direkt kullandım
+- [ ] Adapte ettim
+- [ ] Reddettim
+
+**Açıklama:**
+> Projenin mimarisini sürdürülebilir hale getirmek için sunulan "Decoupled" yapıyı birebir uyguladım.
+
+---
+
+## Prompt 10: Code Diff ve Değişiklik Analizi
+
+**Araç:** Gemini
+**Tarih/Saat:** 2026-01-31 11.00
+
+**Prompt:**
+> "Sadece değiştirdiğin yerleri versene bi. Şu scriptte şurayı değiştirdim veya ekledim gibi nokta atışı özetle."
+
+**Alınan Cevap (Özet):**
+> Yapılan değişiklikler cerrahi bir dille özetlendi:
+> * **InteractableBase:** `InteractionUI` field'ı silindi. `Interact` metodu `sealed/explicit` yapılıp `OnInteract` abstract metodu açıldı.
+> * **InteractionDetector:** `OnInteractableFound`, `OnHoldProgress` gibi eventler eklendi.
+> * **InteractionUI:** `Update` döngüsü yerine Event Listener (Observer) yapısına geçirildi.
+
+**Nasıl Kullandım:**
+- [ ] Direkt kullandım
+- [x] Adapte ettim
+- [ ] Reddettim
+
+**Açıklama:**
+> Tüm kodu kopyalamak yerine, sadece değişen mantığı anlamak ve mevcut kodumdaki hatalı blokları düzeltmek için bu özeti kullandım.
+
+---

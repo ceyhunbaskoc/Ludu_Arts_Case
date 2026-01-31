@@ -16,11 +16,13 @@ namespace LuduArtsCase.Runtime.Interactables
         [Header("Lock Settings")]
         [SerializeField] private string m_KeyItemID = "DoorKey";
         [SerializeField] private bool m_IsLocked = false;
+        [SerializeField] private string m_LockedPromptText = "Locked. Key required.";
         
         private bool m_IsOpen = false;
         private Quaternion m_ClosedRotation;
         private Quaternion m_OpenRotation;
         private Coroutine m_CurrentAnimationCoroutine;
+        private string m_OpenDebugMessage;
         
         #endregion
 
@@ -29,8 +31,14 @@ namespace LuduArtsCase.Runtime.Interactables
         protected override void Awake()
         {
             base.Awake();
+            m_OpenDebugMessage = PromptText;
+            
             m_ClosedRotation = transform.localRotation;
             m_OpenRotation = m_ClosedRotation * Quaternion.Euler(0, m_OpenAngle, 0);
+            if (m_IsLocked)
+            {
+                SetPromptText(m_LockedPromptText);
+            }
         }
 
         #endregion
@@ -62,7 +70,22 @@ namespace LuduArtsCase.Runtime.Interactables
         public void Unlock()
         {
             m_IsLocked = false;
+            SetPromptText(m_OpenDebugMessage);
+            InteractionUI.UpdatePromptText(m_OpenDebugMessage);
             Debug.Log("Door unlocked!");
+        }
+        
+        /// <summary>
+        /// Toggles the door state remotely (e.g., via a switch).
+        /// </summary>
+        public void RemoteToggle(bool isOpen)
+        {
+            if (m_IsLocked) 
+            {
+                Debug.Log("Remote signal received but Door is Locked!");
+                return; 
+            }
+            SetDoorState(isOpen);
         }
         
         #endregion
@@ -75,6 +98,14 @@ namespace LuduArtsCase.Runtime.Interactables
             if (m_CurrentAnimationCoroutine != null)
                 StopCoroutine(m_CurrentAnimationCoroutine);
             
+            m_CurrentAnimationCoroutine = StartCoroutine(PlayAnimationRoutine(m_IsOpen));
+        }
+        
+        private void SetDoorState(bool open)
+        {
+            m_IsOpen = open;
+            if (m_CurrentAnimationCoroutine != null)
+                StopCoroutine(m_CurrentAnimationCoroutine);
             m_CurrentAnimationCoroutine = StartCoroutine(PlayAnimationRoutine(m_IsOpen));
         }
 
