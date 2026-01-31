@@ -7,9 +7,24 @@ namespace Ludu_Arts_Case.Scripts.Runtime.Core
     /// </summary>
     public interface IInteractable
     {
+        /// <summary>
+        /// Type of interaction.
+        /// </summary>
         InteractionType InteractionType { get; }
+        
+        /// <summary>
+        /// Interaction text to be displayed to the player.
+        /// </summary>
         string PromptText { get; }
+        
+        /// <summary>
+        /// Indicates if the object is currently interactable.
+        /// </summary>
         bool IsInteractable { get; }
+        
+        /// <summary>
+        /// Duration required to hold for interaction (if applicable).
+        /// </summary>
         float HoldDuration { get; }
         
         /// <summary>
