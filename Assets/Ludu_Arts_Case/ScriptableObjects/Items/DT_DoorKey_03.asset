@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1492ee2991964f14194b00288e5a2ed3, type: 3}
-  m_Name: SO_DoorKey_01
+  m_Name: DT_DoorKey_03
   m_EditorClassIdentifier: 
-  m_Prefab: {fileID: 7494896379851847890, guid: bf0d7e5ee91e0c648a29591c297d0616, type: 3}
-  m_ID: key_door_01
-  m_DisplayName: Door 1 Key
+  m_Prefab: {fileID: 3135585268843860292, guid: 8f10c3c2991708d4bac14392fc160f83, type: 3}
+  m_ID: key_door_03
+  m_DisplayName: Door 3 Key
   m_Icon: {fileID: 0}
   m_IsStackable: 0

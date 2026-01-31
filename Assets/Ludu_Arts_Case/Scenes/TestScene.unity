@@ -4680,7 +4680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7211740703944982866, guid: 41dd8b5052306834484b2c371fdebc6c, type: 3}
       propertyPath: m_Name
-      value: P_Door (1)
+      value: P_Door_02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5917,7 +5917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7211740703944982866, guid: 41dd8b5052306834484b2c371fdebc6c, type: 3}
       propertyPath: m_Name
-      value: P_Door
+      value: P_Door_01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -222,3 +222,17 @@
 > Tüm kodu kopyalamak yerine, sadece değişen mantığı anlamak ve mevcut kodumdaki hatalı blokları düzeltmek için bu özeti kullandım.
 
 ---
+
+## Genel Değerlendirme
+
+### LLM'in En Çok Yardımcı Olduğu Alanlar
+1. **Mimari Tasarım (Architecture):** Spagetti koda düşmeden IInteractable ve InteractableBase yapısını SOLID prensiplerine göre kurmamı sağladı.
+2. **Kod Standartları (Code Conventions):** Özellikle m_ prefixleri, region kullanımı ve explicit interface implementation konularında bir "Senior Developer" gibi kodumu denetledi.
+3. **Debugging:** Gözden kaçan mantık hatalarını (Raycast seçim kaldırma hatası vb.) tespit etmede hız kazandırdı.
+
+### LLM'in Yetersiz Kaldığı Alanlar
+1. **Context Kaybı:** Projenin tamamını göremediği için bazen sildiğim bir değişkene referans veren kodlar önerdi, manuel düzeltmem gerekti.
+2. **Over-Engineering:** Bazen basit işlemler için proje ölçeğine göre fazla karmaşık patternler önerdi, bunları basitleştirmem gerekti.
+
+### LLM Kullanımı Hakkında Düşüncelerim
+Bu case boyunca LLM'i sadece kod yazdıran bir araç değil, bir "Mentor" olarak kullandım. Normalde "çalışsın yeter" diyip geçeceğim yerlerde, LLM sayesinde "Bu kod SOLID'e uygun mu?" sorusunu sormayı öğrendim. LLM olmadan bu mimariyi kurmak daha uzun sürerdi ve standartlar bu kadar tutarlı olmazdı. LLM'siz büyük ihtimalle 1-2 günümü alırdı. Bu da LLM hızımı 2 kat arttırdı demek oluyor. Gelecekte, kod yazmaya başlamadan önce **"Mimari Planlama"** aşamasında LLM'den daha fazla faydalanmayı planlıyorum. Sadece "bu kodu yaz" demek yerine, "Bu sistemin darboğazları neler olabilir?" veya "Bu yapı SOLID prensiplerini ihlal ediyor mu?" gibi daha yapısal sorular sorarak, olası hataları kodlama aşamasına geçmeden engellemeyi hedefliyorum. Ayrıca, manuel olarak zaman alan **Unit Test** senaryolarının oluşturulması ve **Edge Case** (uç durum) analizleri konularında LLM'i daha proaktif bir "Pair Programmer" olarak konumlandıracağım.
