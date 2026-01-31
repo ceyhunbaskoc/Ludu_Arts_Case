@@ -47,6 +47,11 @@ namespace LuduArtsCase.Runtime.Core
             m_IsInteractable = interactable;
         }
         
+        public void SetPromptText(string text)
+        {
+            m_PromptText = text;
+        }
+        
         #endregion
         
         #region Interface Implementations

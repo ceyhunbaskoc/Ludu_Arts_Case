@@ -91,3 +91,45 @@
 
 **Açıklama:**
 > Mimarinin mantığını anlayıp kendi kod yapımda uyguladım.
+
+---
+
+## Prompt 5: ScriptableObject ve Inventory Kodlama
+
+**Araç:** Gemini
+**Tarih/Saat:** 2023-10-27 12:00
+
+**Prompt:**
+> "Inventory sistemi için ItemData (ScriptableObject), InventoryController ve ItemPickup sınıflarını yazdım. Kodları Ludu Arts standartlarına, encapsulation kurallarına ve güvenli ID kontrolüne göre refactor eder misin?"
+
+**Alınan Cevap (Özet):**
+> Yazılan kodlarda public field kullanımı (encapsulation ihlali) ve isim tabanlı ID kontrolü (güvenlik riski) tespit edildi. Kodlar 'm_' prefixleri, Property kullanımı ve Item.ID tabanlı doğrulama ile refactor edilerek sunuldu.
+
+**Nasıl Kullandım:**
+- [x] Direkt kullandım
+- [ ] Adapte ettim
+- [ ] Reddettim
+
+**Açıklama:**
+> Kodun daha güvenli ve standartlara uygun olması için revize edilmiş versiyonları kullandım.
+
+---
+
+## Prompt 6: Inventory Debugging (String Mismatch)
+
+**Araç:** Gemini
+**Tarih/Saat:** 2023-10-27 12:30
+
+**Prompt:**
+> "Anahtarı almama rağmen kapı hala 'Locked' diyor ve anahtarı görmüyor. Sorun nerede olabilir?"
+
+**Alınan Cevap (Özet):**
+> Sorunun ItemData ID'si ile Kapıdaki KeyID arasındaki string uyuşmazlığından (boşluk karakteri veya isim vs ID karışıklığı) kaynaklanabileceği belirtildi. Debug.Log ile trace etme ve .Trim() kullanımı önerildi.
+
+**Nasıl Kullandım:**
+- [ ] Direkt kullandım
+- [x] Adapte ettim
+- [ ] Reddettim
+
+**Açıklama:**
+> Hata ayıklama adımlarını takip ederek Inspector'daki ID uyuşmazlığını düzelttim.
